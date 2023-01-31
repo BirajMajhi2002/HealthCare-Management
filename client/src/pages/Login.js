@@ -4,7 +4,7 @@ import { Form, Input, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LoginPage = () => {
+const Login = () => {
   const navigate = useNavigate();
   //form handler
   const onfinishHandler = async (values) => {
@@ -12,7 +12,7 @@ const LoginPage = () => {
       const res = await axios.post("/api/v1/user/login", values);
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
-        message.success("Login SuccessFully");
+        message.success("Login Successfully");
         navigate("/");
       } else {
         message.error(res.data.message);
@@ -23,21 +23,22 @@ const LoginPage = () => {
     }
   };
   return (
-    <div className="form-container">
+    <div className="form-container ">
       <Form
         layout="vertical"
         onFinish={onfinishHandler}
         className="register-form"
       >
         <h3 className="text-center">Login Form</h3>
+
         <Form.Item label="Email" name="email">
           <Input type="email" required />
         </Form.Item>
         <Form.Item label="Password" name="password">
           <Input type="password" required />
         </Form.Item>
-        <Link to="/Register" className="ms-2">
-          Not a user register Here
+        <Link to="/Register" className="m-2">
+          Not a user Register here
         </Link>
         <button className="btn btn-primary" type="submit">
           Login
@@ -47,4 +48,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

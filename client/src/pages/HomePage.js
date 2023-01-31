@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-
 const HomePage = () => {
-  //login user data
+  // login user data
   const getUserData = async () => {
     try {
       const res = await axios.post(
@@ -10,7 +9,7 @@ const HomePage = () => {
         {},
         {
           headers: {
-            Authorization: "Bearer" + localStorage.getItem("token"),
+            Authorization: "Bearer " + localStorage.getItem("token"),
           },
         }
       );
@@ -18,6 +17,7 @@ const HomePage = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getUserData();
   }, []);

@@ -6,12 +6,11 @@ module.exports = async (req, res, next) => {
     JWT.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
         return res.status(200).send({
-          message: "Auth Failed",
+          message: "Auth Fialed",
           success: false,
         });
       } else {
         req.body.userId = decode.id;
-        console.log("hey");
         next();
       }
     });
