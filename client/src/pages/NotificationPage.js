@@ -73,7 +73,7 @@ const NotificationPage = () => {
               Mark All Read
             </h4>
           </div>
-          {user?.notification.map((notificationMgs) => (
+          {user?.notifcation.map((notificationMgs) => (
             <div className="card" style={{ cursor: "pointer" }}>
               <div
                 className="card-text"

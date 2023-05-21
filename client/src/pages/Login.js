@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/RegisterStyles.css";
+import "../styles/RegiserStyles.css";
 import { Form, Input, message } from "antd";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
@@ -14,6 +14,7 @@ const Login = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post("/api/v1/user/login", values);
+      window.location.reload();
       dispatch(hideLoading());
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
@@ -35,7 +36,7 @@ const Login = () => {
         onFinish={onfinishHandler}
         className="register-form"
       >
-        <h3 className="text-center">Login Form</h3>
+        <h3 className="text-center">Login From</h3>
 
         <Form.Item label="Email" name="email">
           <Input type="email" required />
@@ -43,7 +44,7 @@ const Login = () => {
         <Form.Item label="Password" name="password">
           <Input type="password" required />
         </Form.Item>
-        <Link to="/Register" className="m-2">
+        <Link to="/register" className="m-2">
           Not a user Register here
         </Link>
         <button className="btn btn-primary" type="submit">

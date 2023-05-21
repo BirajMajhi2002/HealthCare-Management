@@ -44,7 +44,7 @@ const doctorSchema = new mongoose.Schema(
       type: String,
       default: "pending",
     },
-    timing: {
+    timings: {
       type: Object,
       required: [true, "wrok timing is required"],
     },
